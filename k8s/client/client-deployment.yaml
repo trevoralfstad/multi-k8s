@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: web
+  template: # Pod template
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: talfstad/multi-client
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              cpu: '0.5'
+              memory: '512Mi'
+      imagePullSecrets:
+        - name: regcred

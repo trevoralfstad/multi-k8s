@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: server
+  template: # Pod template
+    metadata:
+      labels:
+        component: server # must match the label spec at least that we put in selector above
+    spec:
+      containers:
+        - name: server
+          image: talfstad/multi-server
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              cpu: '0.5'
+              memory: '512Mi'
+          env:
+            - name: REDIS_HOST
+              value: redis-cluster-ip-service
+            - name: REDIS_PORT
+              value: '6379'
+            - name: PGUSER
+              value: postgres
+            - name: PGHOST
+              value: postgres-cluster-ip-service
+            - name: PGPORT
+              value: '5432'
+            - name: PGDATABASE
+              value: postgres
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword
+                  key: 'PG_PASSWORD'
+      imagePullSecrets:
+        - name: regcred
