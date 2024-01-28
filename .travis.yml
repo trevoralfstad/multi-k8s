@@ -6,6 +6,7 @@ env:
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1 # disable prompts from google cloud sdk
 before_install:
   - pyenv global 3.8.13
+  # - - CLOUDSDK_PYTHON=python3.8 # use this instead of pyenv
   # get the service-account secret (encrypted) and decrypt it. it is stored as a travis-ci secret
   # this line decrypts it and puts file in our project dir. so now we will have a service-account.json file
   - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d

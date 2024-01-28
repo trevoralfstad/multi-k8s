@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: server-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       component: server
@@ -17,10 +17,6 @@ spec:
           image: talfstad/multi-server
           ports:
             - containerPort: 5000
-          # resources:
-          #   limits:
-          #     cpu: '0.5'
-          #     memory: '512Mi'
           env:
             - name: REDIS_HOST
               value: redis-cluster-ip-service
