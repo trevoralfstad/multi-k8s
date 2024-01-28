@@ -1,5 +1,5 @@
 sudo: required
-language: python
+language: generic
 services:
   - docker
 env:
@@ -9,6 +9,9 @@ env:
 python::
   - '3.8'
 before_install:
+  - apt update
+  - apt install python3
+  - python3 --version
   # get the service-account secret (encrypted) and decrypt it. it is stored as a travis-ci secret
   # this line decrypts it and puts file in our project dir. so now we will have a service-account.json file
   - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d
