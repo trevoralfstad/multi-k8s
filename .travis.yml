@@ -9,8 +9,8 @@ env:
 python::
   - '3.8'
 before_install:
-  - pyenv install 3.11.0 # install 3.11
-  - pyenv global 3.11.0 # use 3.11. needed for gcloud
+  - pyenv install 3.11.0a2 # install 3.11
+  - pyenv global 3.11.0a2 # use 3.11. needed for gcloud
   - python3 --version
   # get the service-account secret (encrypted) and decrypt it. it is stored as a travis-ci secret
   # this line decrypts it and puts file in our project dir. so now we will have a service-account.json file
