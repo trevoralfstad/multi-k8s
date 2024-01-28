@@ -9,8 +9,8 @@ env:
 python::
   - '3.8'
 before_install:
-  - apt update
-  - apt install python3
+  - sudo apt update
+  - sudo apt install python3
   - python3 --version
   # get the service-account secret (encrypted) and decrypt it. it is stored as a travis-ci secret
   # this line decrypts it and puts file in our project dir. so now we will have a service-account.json file
