@@ -9,8 +9,7 @@ env:
 python::
   - '3.8'
 before_install:
-  - sudo apt update
-  - sudo apt install python3
+  - sudo apt-get install python3.11 # get latest python version. needed for gcloud
   - python3 --version
   # get the service-account secret (encrypted) and decrypt it. it is stored as a travis-ci secret
   # this line decrypts it and puts file in our project dir. so now we will have a service-account.json file
