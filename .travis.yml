@@ -5,9 +5,9 @@ env:
   global:
     - SHA=$(git rev-parse HEAD) # get the git sha
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1 # disable prompts from google cloud sdk
-language: python
-python::
-  - '3.8'
+# language: python
+# python::
+#   - '3.8'
 before_install:
   - pyenv install 3.8.13
   - pyenv global 3.8.13
