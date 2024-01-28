@@ -9,6 +9,8 @@ language: python
 python::
   - '3.8'
 before_install:
+  - pyenv install 3.8.13
+  - pyenv global 3.8.13
   # get the service-account secret (encrypted) and decrypt it. it is stored as a travis-ci secret
   # this line decrypts it and puts file in our project dir. so now we will have a service-account.json file
   - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d
