@@ -17,9 +17,9 @@ spec:
           image: talfstad/multi-client
           ports:
             - containerPort: 3000
-          resources:
-            limits:
-              cpu: '0.5'
-              memory: '512Mi'
+          # resources:
+          #   limits:
+          #     cpu: '0.5'
+          #     memory: '512Mi'
       imagePullSecrets:
         - name: regcred

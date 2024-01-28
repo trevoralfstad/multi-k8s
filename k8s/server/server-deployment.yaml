@@ -17,10 +17,10 @@ spec:
           image: talfstad/multi-server
           ports:
             - containerPort: 5000
-          resources:
-            limits:
-              cpu: '0.5'
-              memory: '512Mi'
+          # resources:
+          #   limits:
+          #     cpu: '0.5'
+          #     memory: '512Mi'
           env:
             - name: REDIS_HOST
               value: redis-cluster-ip-service

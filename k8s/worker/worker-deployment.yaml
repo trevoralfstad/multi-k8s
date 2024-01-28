@@ -15,10 +15,10 @@ spec:
       containers:
         - name: worker
           image: talfstad/multi-worker
-          resources:
-            limits:
-              cpu: '0.5'
-              memory: '512Mi'
+          # resources:
+          #   limits:
+          #     cpu: '0.5'
+          #     memory: '512Mi'
           env:
             - name: REDIS_HOST
               value: redis-cluster-ip-service

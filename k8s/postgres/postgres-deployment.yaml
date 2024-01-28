@@ -21,10 +21,10 @@ spec:
           image: postgres # pulling public repo postgres
           ports:
             - containerPort: 5432
-          resources:
-            limits:
-              cpu: '0.5'
-              memory: '512Mi'
+          # resources:
+          #   limits:
+          #     cpu: '0.5'
+          #     memory: '512Mi'
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
