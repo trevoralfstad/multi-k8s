@@ -13,7 +13,7 @@ before_install:
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   # install kubectl
-  - gcloud components update  kubectl
+  - gcloud components update kubectl
   # authenticate to google cloud
   - gcloud auth activate-service-account --key-file service-account.json # auth using service-account.json.enc
   - gcloud config set project multi-k8s-412523 # set project id (from gcloud console)
@@ -22,10 +22,9 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin # login to docker
   # build client and run tests
   - docker build -t talfstad/react-test -f ./client/Dockerfile.dev ./client # build test image for client
-  - docker run -e CI=true talfstad/react-test npm test # run tests
 
 script:
-  - docker run talfstad/react-test npm run test -- # run tests and exit
+  - docker run -e CI=true talfstad/react-test npm test # run tests
 
 deploy:
   provider: script # use a custom script for deployment.
