@@ -36,7 +36,7 @@ deploy:
   provider: script # use a custom script for deployment.
   script: bash ./deploy.sh
   on:
-    branch: master
+    branch: main
 # sudo: required
 # services:
 #   - docker
